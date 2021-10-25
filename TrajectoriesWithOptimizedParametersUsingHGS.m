@@ -39,3 +39,27 @@ set(gca,'Fontsize',18)
 legend('Desired trajectory ','40ind, 20 iter','30ind, 20 iter','20ind, 20 iter','AutoUpdate','off','Fontsize',18)
 hold on
 grid on
+
+%%
+clear xi_d
+load('xiCircle.mat');
+x_dC     = xi_d(1,:)';
+y_dC     = xi_d(2,:)';
+z_dC     = xi_d(3,:)';
+x_HGS_C     = xi(:,4);
+y_HGS_C     = xi(:,5);
+z_HGS_C     = xi(:,6);
+
+figure
+set(gcf,'position', [150,150,800,500])
+
+%x=x_HGS; y=y_HGS; z=z_HGS;
+
+plot3(x_dC,y_dC,z_dC,'k--',x_HGS_C,y_HGS_C,z_HGS_C,'r','LineWidth',2);
+xlabel('X [m]','Fontsize',18);
+ylabel('Y [m]','Fontsize',18);
+zlabel('Z [m]','Fontsize',18);
+set(gca,'Fontsize',18)
+legend('Desired trajectory ','20ind, 20 iter HGS','Fontsize',18)
+hold on
+grid on
